@@ -2174,7 +2174,7 @@ class HeadsetStateMachine extends StateMachine {
         } else {
             // In Telecom call, ask Telecom to send send remote phone number
             if (!mSystemInterface.listCurrentCalls(mHeadsetService)) {
-                Log.e(TAG, "processAtClcc: failed to list current calls for " + device);
+                Log.d(TAG, "processAtClcc: no active calls for " + device);
                 mNativeInterface.clccResponse(device, 0, 0, 0, 0, false, "", 0);
             } else {
                 sendMessageDelayed(CLCC_RSP_TIMEOUT, device, CLCC_RSP_TIMEOUT_MS);
